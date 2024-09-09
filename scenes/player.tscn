@@ -1,9 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://ey8jlvdhbjl7"]
+[gd_scene load_steps=27 format=3 uid="uid://ey8jlvdhbjl7"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qtp2b"]
 [ext_resource type="Texture2D" uid="uid://3oos708m1i67" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Run/Run-Sheet.png" id="2_lh64v"]
 [ext_resource type="Texture2D" uid="uid://bgrrn4dvplbod" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Idle/Idle-Sheet.png" id="2_u0b20"]
 [ext_resource type="Texture2D" uid="uid://32pkb7n7cswr" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Death/Death-Sheet.png" id="2_upwot"]
+[ext_resource type="Script" path="res://scripts/abilites/abilities_anchor.gd" id="5_5pe8s"]
+[ext_resource type="PackedScene" uid="uid://bggvhebuaugap" path="res://scenes/abilites/knife_throw_instance.tscn" id="6_evhjn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wcfgb"]
 atlas = ExtResource("2_upwot")
@@ -179,3 +181,10 @@ curve = SubResource("Curve2D_dc7vd")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(-337.228, -208)
 rotation = -0.00328823
+
+[node name="Position2D" type="Marker2D" parent="Path2D/PathFollow2D"]
+
+[node name="AbilitiesAnchor" type="Node2D" parent="."]
+script = ExtResource("5_5pe8s")
+
+[node name="KnifeThrowInstance" parent="." instance=ExtResource("6_evhjn")]

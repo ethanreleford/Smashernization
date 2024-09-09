@@ -4,12 +4,11 @@ extends CharacterBody2D
 var speed : int = 50
 
 
-@onready var  player = get_parent().get_node("Player")
+@onready var player = get_parent().get_parent().get_node("Player")
 
 
 func _physics_process(delta):
 	follow_Player(delta)
-	
 
 
 func follow_Player(delta):

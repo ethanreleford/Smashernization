@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://bggvhebuaugap"]
+[gd_scene load_steps=3 format=3 uid="uid://bggvhebuaugap"]
 
-[node name="KnifeThrowNode" type="Node2D"]
+[ext_resource type="Script" path="res://scripts/abilites/knife_throw_instance.gd" id="1_lib6s"]
+[ext_resource type="Texture2D" uid="uid://rojxucl1862i" path="res://assets/my assets/Knife.png" id="2_gt4q4"]
+
+[node name="KnifeThrowNode" type="CharacterBody2D"]
+rotation = 1.5708
+script = ExtResource("1_lib6s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_gt4q4")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-2, -2, -2, -6, -1, -6, -1, -10, 0, -10, 0, -14, 1, -14, 1, -15, 3, -15, 3, 2, 2, 2, 2, 5, 3, 5, 3, 7, 2, 7, 2, 9, 3, 9, 3, 11, 2, 11, 2, 12, -2, 12, -2, 11, -3, 11, -3, 9, -2, 9, -2, 7, -3, 7, -3, 5, -2, 5, -2, 2, -3, 2, -3, -2)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -3,11 +3,11 @@ extends CharacterBody2D
 var speed : int = 100
 var health : int 
 var pushForce : float = 2000.0
-
+var facedLast = 0
 
 var character = CharacterBody2D
-
-
+var pos: Vector2 = Vector2.ZERO
+signal face(pos: Vector2)
 
 @onready var animated_Sprite : AnimatedSprite2D = $AnimatedSprite2D
 
@@ -24,7 +24,6 @@ func _process(delta):
 
 func movement(delta):
 	var movement_vector = Vector2.ZERO
-
 	# Check for movement input
 	if Input.is_action_pressed("Move Right"):
 		movement_vector.x += 1
@@ -34,7 +33,6 @@ func movement(delta):
 		movement_vector.x -= 1
 		$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play("walk")
-		
 	if Input.is_action_pressed("Move Up"):
 		movement_vector.y -= 1
 		$AnimatedSprite2D.play("walk")
@@ -47,11 +45,10 @@ func movement(delta):
 		$AnimatedSprite2D.offset.y = -16
 		movement_vector = movement_vector.normalized() * speed * delta
 		position += movement_vector
+		emit_signal("face", movement_vector)
 	else:
 		$AnimatedSprite2D.offset.y = 0
 		$AnimatedSprite2D.play("idle")
-
-
 
 
 func setHeroAnimatedSprite(new_animated_Sprite):
