@@ -188,3 +188,5 @@ rotation = -0.00328823
 script = ExtResource("5_5pe8s")
 
 [node name="KnifeThrowInstance" parent="." instance=ExtResource("6_evhjn")]
+
+[connection signal="face" from="." to="KnifeThrowInstance" method="_on_player_face"]

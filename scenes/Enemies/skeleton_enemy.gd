@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var speed : int = 50
+var speed : int = 10
 
 
 @onready var player = get_parent().get_parent().get_node("Player")

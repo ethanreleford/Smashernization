@@ -1,23 +1,18 @@
-extends Node2D
+extends CharacterBody2D
 
-var projectile: PackedScene = preload("res://scenes/abilites/knife_throw_node.tscn")
-var canShoot = true
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+var speed: float = 200.0
+var direction: Vector2 = Vector2.ZERO
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
-	fireProjectile()
+	position += direction * speed * delta
 
 
-func fireProjectile():
-	if canShoot:
-		var projectile_instance = projectile.instantiate()
-		projectile_instance.global_position = global_position
-		get_tree().root.add_child(projectile_instance)
-		canShoot = false
-		await get_tree().create_timer(0.2).timeout
-		canShoot = true
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("Enemy"):
+		body.queue_free()
+		queue_free()
+	else:
+		await get_tree().create_timer(10).timeout
+		queue_free()

@@ -6,11 +6,10 @@ var pushForce : float = 2000.0
 var facedLast = 0
 
 var character = CharacterBody2D
-var pos: Vector2 = Vector2.ZERO
-signal face(pos: Vector2)
+var pos: Vector2 = Vector2.RIGHT
+signal face(pos: Vector2, player: CharacterBody2D)
 
 @onready var animated_Sprite : AnimatedSprite2D = $AnimatedSprite2D
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,8 +44,10 @@ func movement(delta):
 		$AnimatedSprite2D.offset.y = -16
 		movement_vector = movement_vector.normalized() * speed * delta
 		position += movement_vector
-		emit_signal("face", movement_vector)
+		emit_signal("face", movement_vector.normalized(), self)
+		pos = movement_vector.normalized()
 	else:
+		emit_signal("face", pos, self)
 		$AnimatedSprite2D.offset.y = 0
 		$AnimatedSprite2D.play("idle")
 
