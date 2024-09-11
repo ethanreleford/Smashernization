@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c5sq7afxojhw"]
+[gd_scene load_steps=21 format=3 uid="uid://c5sq7afxojhw"]
 
 [ext_resource type="Script" path="res://scenes/Enemies/skeleton_enemy.gd" id="1_jady7"]
 [ext_resource type="Texture2D" uid="uid://cyblpa4uu7dbj" path="res://assets/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Base/Death/Death-Sheet.png" id="2_dcqvr"]
@@ -115,6 +115,13 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_d5otr"]
+radius = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n4b37"]
+radius = 6.0
+height = 28.0
+
 [node name="SkeletonEnemy" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_jady7")
 
@@ -122,8 +129,16 @@ script = ExtResource("1_jady7")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_prq7c")
 animation = &"run"
-frame_progress = 0.354787
+frame_progress = 0.480249
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-1, 21)
-polygon = PackedVector2Array(-3, -18, 6, -18, 7, -15, 7, -8, 7, -6, 7, -4, 7, 0, 6, 1, 5, 2, 6, 3, 5, 4, 5, 5, -1, 5, -3, 4, -3, 0, -5, 0, -5, -1, -5, -2, -5, -3, -5, -5, -5, -6, -4, -8, -4, -10, -4, -15)
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(1, 18)
+shape = SubResource("CircleShape2D_d5otr")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="ProjectileCollision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 16)
+shape = SubResource("CapsuleShape2D_n4b37")
