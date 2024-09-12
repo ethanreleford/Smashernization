@@ -128,16 +128,14 @@ script = ExtResource("1_jady7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_prq7c")
-animation = &"run"
-frame_progress = 0.480249
+animation = &"death"
+frame_progress = 0.374416
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(1, 18)
 shape = SubResource("CircleShape2D_d5otr")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
 
 [node name="ProjectileCollision" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, 16)

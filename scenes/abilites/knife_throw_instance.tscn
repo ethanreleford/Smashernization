@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bggvhebuaugap"]
+[gd_scene load_steps=2 format=3 uid="uid://ck0u6oa0nlmy1"]
 
-[ext_resource type="Script" path="res://scripts/abilites/knife_throw_instance.gd" id="1_xxp7k"]
+[ext_resource type="Script" path="res://scripts/abilites/knife_throw_instance.gd" id="1_qh3i8"]
 
 [node name="KnifeThrowInstance" type="Node2D"]
-script = ExtResource("1_xxp7k")
+script = ExtResource("1_qh3i8")

@@ -3,14 +3,12 @@ extends CharacterBody2D
 var speed : int = 100
 var health : int 
 var pushForce : float = 2000.0
-var facedLast = 0
+var level: int = 0
+
 
 var character = CharacterBody2D
 var pos: Vector2 = Vector2.RIGHT
 signal face(pos: Vector2, player: CharacterBody2D)
-
-@onready var animated_Sprite : AnimatedSprite2D = $AnimatedSprite2D
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -18,7 +16,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	movement(delta)
-
 
 
 func movement(delta):
@@ -50,7 +47,3 @@ func movement(delta):
 		emit_signal("face", pos, self)
 		$AnimatedSprite2D.offset.y = 0
 		$AnimatedSprite2D.play("idle")
-
-
-func setHeroAnimatedSprite(new_animated_Sprite):
-	animated_Sprite = new_animated_Sprite
