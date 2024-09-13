@@ -3,7 +3,7 @@ extends RigidBody2D
 var speed: float = 200.0
 var direction: Vector2 = Vector2.ZERO
 var damage: int = 50
-var penetration: int = 1
+var penetration: int = 3
 
 
 
@@ -25,7 +25,7 @@ func _on_area_2d_area_entered(area):
 
 
 func penetrated():
-	if penetration == 0:
+	if penetration <= 0:
 		$Sprite2D.visible = false
 		$AnimatedSprite2D2.visible = true
 		$Area2D/CollisionPolygon2D.call_deferred("set_disabled", true)

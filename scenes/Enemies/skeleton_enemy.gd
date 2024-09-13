@@ -1,12 +1,15 @@
 extends CharacterBody2D
 
 
+var coin: PackedScene = preload("res://scenes/items/xp.tscn")
+
 var speed : int = 10
 var health : int = 150
 var is_dead: bool = false
 
 
 @onready var player = get_parent().get_parent().get_node("Player")
+
 
 func _ready():
 	$AnimatedSprite2D.play("run")
@@ -45,4 +48,12 @@ func death():
 	$PlayerCollision.call_deferred("set_disabled", true)
 	$AnimatedSprite2D.play("death")
 	await get_tree().create_timer(0.7).timeout
+	dropCoin()
 	queue_free() 
+
+func dropCoin():
+	var coin_instance = coin.instantiate()
+	coin_instance.global_position = global_position
+	coin_instance.global_position.y += 15
+	get_tree().root.add_child(coin_instance)
+	

@@ -1,10 +1,13 @@
-[gd_scene load_steps=26 format=3 uid="uid://ey8jlvdhbjl7"]
+[gd_scene load_steps=28 format=3 uid="uid://ey8jlvdhbjl7"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qtp2b"]
+[ext_resource type="Script" path="res://scenes/xp_range.gd" id="2_kgwq4"]
 [ext_resource type="Texture2D" uid="uid://3oos708m1i67" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Run/Run-Sheet.png" id="2_lh64v"]
 [ext_resource type="Texture2D" uid="uid://bgrrn4dvplbod" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Idle/Idle-Sheet.png" id="2_u0b20"]
 [ext_resource type="Texture2D" uid="uid://32pkb7n7cswr" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Death/Death-Sheet.png" id="2_upwot"]
 [ext_resource type="PackedScene" uid="uid://ck0u6oa0nlmy1" path="res://scenes/abilites/knife_throw_instance.tscn" id="5_jxyjw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_as6e5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wcfgb"]
 atlas = ExtResource("2_upwot")
@@ -153,6 +156,16 @@ point_count = 8
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qtp2b")
 
+[node name="XP_Range" type="Area2D" parent="."]
+position = Vector2(-1, 1)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("2_kgwq4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="XP_Range"]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_as6e5")
+
 [node name="PlayerCamera" type="Camera2D" parent="."]
 z_index = 1
 zoom = Vector2(2.5, 2.5)
@@ -186,3 +199,4 @@ rotation = -0.00328823
 [node name="instance" parent="." instance=ExtResource("5_jxyjw")]
 
 [connection signal="face" from="." to="instance" method="_on_player_face"]
+[connection signal="body_entered" from="XP_Range" to="XP_Range" method="_on_body_entered"]
