@@ -1,18 +1,16 @@
 extends Node2D
 
 var enemy = preload("res://scenes/Enemies/skeleton_enemy.tscn")
-
+var count  = 0
 
 func _ready():
 	randomize()  # Randomizes RNG globally
 	$Timer.start()  # Start a timer to spawn enemies periodically
 
-
-
-
 func _on_timer_timeout():
+	count +=1
+	#print(count)
 	spawnEnemies()
-
 
 func spawnEnemies():
 	var rng = RandomNumberGenerator.new()

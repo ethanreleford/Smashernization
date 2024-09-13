@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var speed : int = 10
-var health : int = 100
+var health : int = 150
 var is_dead: bool = false
 
 
@@ -29,6 +29,9 @@ func follow_Player(delta):
 func takeDamage(damage: int):
 	health -= damage
 	if health <= 0:
+		$AnimatedSprite2D.modulate = Color.RED
+		await get_tree().create_timer(0.05).timeout
+		$AnimatedSprite2D.modulate = Color.WHITE
 		death()
 	else:
 		$AnimatedSprite2D.modulate = Color.RED
