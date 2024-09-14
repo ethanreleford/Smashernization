@@ -3,6 +3,7 @@ extends RigidBody2D
 var flag: bool = false
 var player: CharacterBody2D
 var speed: float = 100  # Speed at which XP moves towards the player
+var worth: float = 2.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,6 +15,7 @@ func _process(delta: float) -> void:
 	if flag:
 		goTowardPlayer(delta)
 		if position.distance_to(player.position) < 10:  # Adjust distance tolerance as needed
+			player.addXP(worth)
 			queue_free()  # Remove XP when it's close enough to the player
 
 func setPlayer(newPlayer: CharacterBody2D):
@@ -25,5 +27,3 @@ func goTowardPlayer(delta: float) -> void:
 	# Move the XP in the direction of the player
 	speed *= 1.01
 	position += direction * speed * delta
-
-	

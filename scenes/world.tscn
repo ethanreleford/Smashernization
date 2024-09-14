@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bpjrf3oqd4ep3"]
+[gd_scene load_steps=15 format=3 uid="uid://bpjrf3oqd4ep3"]
 
 [ext_resource type="Texture2D" uid="uid://bkqd4lxcpv0xj" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="1_cim0q"]
 [ext_resource type="Texture2D" uid="uid://bevo75v6n51gk" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Props.png" id="2_bd3if"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dbt0ee2tvvooo" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Tiles.png" id="4_wsvtk"]
 [ext_resource type="Texture2D" uid="uid://b3hdu8pq2sqhe" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Trees.png" id="5_jvhvv"]
 [ext_resource type="PackedScene" uid="uid://ey8jlvdhbjl7" path="res://scenes/player.tscn" id="6_gojx8"]
+[ext_resource type="PackedScene" uid="uid://bwnxtjaqqqkvi" path="res://TimerUI.tscn" id="8_a7oka"]
 [ext_resource type="PackedScene" uid="uid://o2bk25d4bwbp" path="res://scenes/Enemies/spawn_enemies.tscn" id="8_f6c4c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_phtt7"]
@@ -973,5 +974,7 @@ layer_0/tile_data = PackedInt32Array(-393225, 917504, 0, -327689, 917504, 1, -26
 position = Vector2(2, 0)
 
 [node name="Player" parent="." instance=ExtResource("6_gojx8")]
+
+[node name="Label" parent="." instance=ExtResource("8_a7oka")]
 
 [editable path="Player"]

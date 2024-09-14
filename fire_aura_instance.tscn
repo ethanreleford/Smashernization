@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dip0p1pdgn85s"]
+
+[ext_resource type="Script" path="res://fire_aura_instance.gd" id="1_x2cpg"]
+
+[node name="FireAuraInstance" type="Node2D"]
+script = ExtResource("1_x2cpg")
