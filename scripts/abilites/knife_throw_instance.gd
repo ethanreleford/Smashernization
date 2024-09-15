@@ -15,7 +15,7 @@ func fireProjectile():
 	if canShoot:
 		canShoot = false
 		#print(direction)
-		if itemLevel >= 1:
+		if playerInfo.level >= 1:
 			# First projectile instantiation
 			var projectile_instance1 = projectile.instantiate()
 			projectile_instance1.global_position = global_position
@@ -26,7 +26,7 @@ func fireProjectile():
 			# Delay before firing the next projectile
 			await get_tree().create_timer(0.2).timeout
 			
-		if itemLevel >= 2:
+		if playerInfo.level >= 2:
 			# Second projectile instantiation
 			var projectile_instance2 = projectile.instantiate()
 			projectile_instance2.global_position = global_position + (Vector2(11,11) * fixKnifeTrajectory(direction))
@@ -35,7 +35,7 @@ func fireProjectile():
 			projectile_instance2.direction = direction
 			#print("2")
 			await get_tree().create_timer(0.2).timeout
-		if itemLevel >= 3:
+		if playerInfo.level >= 3:
 			# Second projectile instantiation
 			var projectile_instance3 = projectile.instantiate()
 			projectile_instance3.global_position = global_position + (Vector2(-11,-11) * fixKnifeTrajectory(direction))
@@ -44,7 +44,7 @@ func fireProjectile():
 			projectile_instance3.direction = direction
 			#print("3")
 			await get_tree().create_timer(0.2).timeout
-		if itemLevel >= 4:
+		if playerInfo.level >= 4:
 			# fourth projectile instantiation
 			var projectile_instance4 = projectile.instantiate()
 			projectile_instance4.global_position = global_position + (Vector2(7,7) * fixKnifeTrajectory(direction))
@@ -53,6 +53,7 @@ func fireProjectile():
 			projectile_instance4.direction = direction
 		#print("4")
 		await get_tree().create_timer(cooldown).timeout
+		decreaseCooldown()
 		canShoot = true
 
 func fixKnifeTrajectory(givenDirection: Vector2) -> Vector2:

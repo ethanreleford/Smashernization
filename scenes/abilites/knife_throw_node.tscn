@@ -1,8 +1,44 @@
-[gd_scene load_steps=33 format=3 uid="uid://bggvhebuaugap"]
+[gd_scene load_steps=38 format=3 uid="uid://bggvhebuaugap"]
 
 [ext_resource type="Script" path="res://scripts/abilites/knife_throw_node.gd" id="1_lib6s"]
-[ext_resource type="Texture2D" uid="uid://rojxucl1862i" path="res://assets/my assets/Knife.png" id="2_gt4q4"]
+[ext_resource type="Texture2D" uid="uid://bt333akfsjdpc" path="res://assets/Fire Assets/Free  Effect Bullet Impact Explosion 32x32 V1/Blue Effect Bullet Impact Explosion 32x32.png" id="2_ist5w"]
 [ext_resource type="Texture2D" uid="uid://dnhu4f63l2b2h" path="res://assets/BLOOD ASSETS/NEw pack blood/3_100x100px.png" id="3_ay5tm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bluv"]
+atlas = ExtResource("2_ist5w")
+region = Rect2(352, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufw1s"]
+atlas = ExtResource("2_ist5w")
+region = Rect2(384, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63c8y"]
+atlas = ExtResource("2_ist5w")
+region = Rect2(416, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc2v7"]
+atlas = ExtResource("2_ist5w")
+region = Rect2(448, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dmiyw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bluv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufw1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63c8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc2v7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8oku0"]
 atlas = ExtResource("3_ay5tm")
@@ -216,9 +252,17 @@ gravity_scale = 0.0
 continuous_cd = 2
 script = ExtResource("1_lib6s")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_gt4q4")
+rotation = 1.5708
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_dmiyw")
+frame_progress = 0.190184
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+region_enabled = true
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 visible = false

@@ -1,11 +1,27 @@
-extends Node2D
+extends RigidBody2D
+
+var angle : float = 0.0
+var radius : float = 50.0  # Adjust this to set the radius of the circular path
+var speed : float = 5.0  # Speed of rotation in radians per second
+var damage : int = 50
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
+func _ready():
+	$AnimatedSprite2D.play("default")
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	angle += delta * speed
+	position = Vector2(
+		cos(angle) * radius,
+		sin(angle) * radius
+	) + Vector2.ZERO  # Center of the circular path, adjust if needed
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Enemy"):
+		area.get_parent().takeDamage(damage)
+
+func despawn():
+	await get_tree().create_timer(9.5).timeout
+	print("despawned")
+	queue_free()

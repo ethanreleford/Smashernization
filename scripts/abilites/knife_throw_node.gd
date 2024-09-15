@@ -5,7 +5,8 @@ var direction: Vector2 = Vector2.ZERO
 var damage: int = 50
 var penetration: int = 3
 
-
+func _ready():
+	$AnimatedSprite2D.play("default")
 
 
 func _process(delta):

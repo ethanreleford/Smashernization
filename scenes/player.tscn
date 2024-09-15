@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ey8jlvdhbjl7"]
+[gd_scene load_steps=29 format=3 uid="uid://ey8jlvdhbjl7"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qtp2b"]
 [ext_resource type="Script" path="res://scenes/xp_range.gd" id="2_kgwq4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bgrrn4dvplbod" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Idle/Idle-Sheet.png" id="2_u0b20"]
 [ext_resource type="Texture2D" uid="uid://32pkb7n7cswr" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Death/Death-Sheet.png" id="2_upwot"]
 [ext_resource type="PackedScene" uid="uid://ck0u6oa0nlmy1" path="res://scenes/abilites/knife_throw_instance.tscn" id="5_jxyjw"]
+[ext_resource type="PackedScene" uid="uid://dip0p1pdgn85s" path="res://fire_aura_instance.tscn" id="7_e3v36"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_as6e5"]
 
@@ -154,6 +155,7 @@ _data = {
 point_count = 8
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 6
 script = ExtResource("1_qtp2b")
 
 [node name="XP_Range" type="Area2D" parent="."]
@@ -167,6 +169,7 @@ scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_as6e5")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
+visible = false
 z_index = 1
 zoom = Vector2(2.5, 2.5)
 
@@ -196,7 +199,10 @@ rotation = -0.00328823
 
 [node name="Position2D" type="Marker2D" parent="Path2D/PathFollow2D"]
 
-[node name="instance" parent="." instance=ExtResource("5_jxyjw")]
+[node name="FireAuraInstance" parent="." instance=ExtResource("7_e3v36")]
 
-[connection signal="face" from="." to="instance" method="_on_player_face"]
+[node name="KnifeThrowInstance" parent="." instance=ExtResource("5_jxyjw")]
+
+[connection signal="face" from="." to="FireAuraInstance" method="_on_player_face"]
+[connection signal="face" from="." to="KnifeThrowInstance" method="_on_player_face"]
 [connection signal="body_entered" from="XP_Range" to="XP_Range" method="_on_body_entered"]
