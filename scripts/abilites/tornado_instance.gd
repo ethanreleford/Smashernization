@@ -20,5 +20,5 @@ func spawnTornado():
 		var tornado_instance = tornado.instantiate()
 		tornado_instance.global_position = global_position
 		get_tree().root.add_child(tornado_instance)
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.25).timeout
 		canSpawn = true
