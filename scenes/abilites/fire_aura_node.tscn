@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://r8mtowl1uduk"]
 
-[ext_resource type="Script" path="res://fire_aura_node.gd" id="1_cjekb"]
+[ext_resource type="Script" path="res://scripts/abilites/fire_aura_node.gd" id="1_cjekb"]
 [ext_resource type="Texture2D" uid="uid://cabr83d0bhfu2" path="res://assets/Fire Assets/Free  Effect Bullet Impact Explosion 32x32 V1/Red Effect Bullet Impact Explosion 32x32.png" id="2_fm8w5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h1w6r"]

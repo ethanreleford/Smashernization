@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgs41oj0dhr0p"]
+
+[ext_resource type="Script" path="res://scripts/abilites/tornado_node.gd" id="1_bsxk0"]
+[ext_resource type="Texture2D" uid="uid://na8ap4e1astm" path="res://assets/Fire Assets/Free  Effect Bullet Impact Explosion 32x32 V1/Green Effect Bullet Impact Explosion 32x32.png" id="2_iuom3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfuwt"]
+atlas = ExtResource("2_iuom3")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gre6u"]
+atlas = ExtResource("2_iuom3")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c54v"]
+atlas = ExtResource("2_iuom3")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7oh4"]
+atlas = ExtResource("2_iuom3")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d1wbi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfuwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gre6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c54v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7oh4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mlfvm"]
+radius = 65.0
+
+[node name="TornadoNode" type="RigidBody2D"]
+script = ExtResource("1_bsxk0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_d1wbi")
+frame_progress = 0.149809
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+scale = Vector2(-1.5669, 1.61551)
+polygon = PackedVector2Array(5.74381, -8.04699, -5.74381, -8.04699, -7.65842, -6.18999, -7.02022, -3.71399, 0, 6.80899, 7.02022, -3.71399, 7.65842, -6.18999)
+
+[node name="SearchArea2D" type="Area2D" parent="."]
+
+[node name="searchCollision" type="CollisionShape2D" parent="SearchArea2D"]
+shape = SubResource("CircleShape2D_mlfvm")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="SearchArea2D" to="." method="_on_search_area_2d_area_entered"]

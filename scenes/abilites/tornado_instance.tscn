@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf636ao4e8ia8"]
+
+[ext_resource type="Script" path="res://scripts/abilites/tornado_instance.gd" id="1_f0gdy"]
+
+[node name="TornadoInstance" type="Node2D"]
+script = ExtResource("1_f0gdy")

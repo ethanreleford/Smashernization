@@ -53,7 +53,7 @@ func fireProjectile():
 			projectile_instance4.direction = direction
 		#print("4")
 		await get_tree().create_timer(cooldown).timeout
-		decreaseCooldown()
+		#decreaseCooldown()
 		canShoot = true
 
 func fixKnifeTrajectory(givenDirection: Vector2) -> Vector2:

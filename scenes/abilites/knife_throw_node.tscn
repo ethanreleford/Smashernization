@@ -259,11 +259,6 @@ scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_dmiyw")
 frame_progress = 0.190184
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture_filter = 1
-region_enabled = true
-
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 visible = false
 texture_filter = 1

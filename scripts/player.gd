@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var speed : int = 100
-var health : int 
+var health : int = 1000
 var level: int = 1
 var xpStart : float = 0.0
 var xpThreshold : float = 10.0
@@ -11,6 +11,7 @@ var character = CharacterBody2D
 var pos: Vector2 = Vector2.RIGHT
 
 signal face(pos: Vector2, player: CharacterBody2D)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

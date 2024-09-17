@@ -2,9 +2,9 @@ extends RigidBody2D
 
 var angle : float = 0.0
 var radius : float = 50.0  # Adjust this to set the radius of the circular path
-var speed : float = 5.0  # Speed of rotation in radians per second
-var damage : int = 50
-
+var speed : float = 10.0 # Speed of rotation in radians per second
+var damage : int = 20
+@onready var global_vars = get_node("/root/Global")
 
 func _ready():
 	$AnimatedSprite2D.play("default")
@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Enemy"):
-		area.get_parent().takeDamage(damage)
+		await global_vars.takeDamage(area.get_parent(), damage)
 
 func despawn():
 	await get_tree().create_timer(9.5).timeout

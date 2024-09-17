@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dbt0ee2tvvooo" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Tiles.png" id="4_wsvtk"]
 [ext_resource type="Texture2D" uid="uid://b3hdu8pq2sqhe" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Green Woods/Assets/Trees.png" id="5_jvhvv"]
 [ext_resource type="PackedScene" uid="uid://ey8jlvdhbjl7" path="res://scenes/player.tscn" id="6_gojx8"]
-[ext_resource type="PackedScene" uid="uid://bwnxtjaqqqkvi" path="res://TimerUI.tscn" id="8_a7oka"]
+[ext_resource type="PackedScene" uid="uid://bwnxtjaqqqkvi" path="res://UI/TimerUI.tscn" id="8_a7oka"]
 [ext_resource type="PackedScene" uid="uid://o2bk25d4bwbp" path="res://scenes/Enemies/spawn_enemies.tscn" id="8_f6c4c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_phtt7"]
