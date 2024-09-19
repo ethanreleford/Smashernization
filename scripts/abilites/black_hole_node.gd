@@ -55,7 +55,6 @@ func pullEnemy(enemy: CharacterBody2D, delta: float):
 	#print(pull_force)
 	# Reduce enemy's speed as they get closer to the center (optional)
 	enemy.velocity = enemy.velocity.lerp(Vector2.ZERO, pull_decay)
-
 	# Apply the pull force to the enemy
 	enemy.position += pull_force
 	

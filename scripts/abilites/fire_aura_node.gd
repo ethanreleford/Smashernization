@@ -2,13 +2,15 @@ extends RigidBody2D
 
 var angle : float = 0.0
 var radius : float = 50.0  # Adjust this to set the radius of the circular path
-var speed : float = 10.0 # Speed of rotation in radians per second
+var speed : float = 1.0 # Speed of rotation in radians per second
 var damage : int = 50
+
 @onready var global_vars = get_node("/root/Global")
+@onready var upgrade_vars = get_node("/root/UpgradeAbilites")
 
 func _ready():
 	$AnimatedSprite2D.play("default")
-	
+	await upgrade_vars.increaseSize($AnimatedSprite2D, $Area2D/CollisionShape2D, 0)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	angle += delta * speed

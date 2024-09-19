@@ -17,47 +17,26 @@ func _process(delta):
 func fireProjectile():
 	if canShoot:
 		canShoot = false
-		#print(direction)
-		if playerInfo.level >= 1:
-			# First projectile instantiation
-			var projectile_instance1 = projectile.instantiate()
-			projectile_instance1.global_position = global_position
-			get_tree().root.add_child(projectile_instance1)
-			projectile_instance1.rotation += direction.angle()
-			projectile_instance1.direction = direction
-			#print("1")
-			# Delay before firing the next projectile
-			await get_tree().create_timer(0.05).timeout
+		
+		var offsets = [
+			Vector2(0, 0), 
+			Vector2(11, 11), 
+			Vector2(-11, -11), 
+			Vector2(7, 7)
+		]
+		
+		for offset in offsets:
+			var projectile_instance = projectile.instantiate()
+			projectile_instance.global_position = global_position + (offset * fixKnifeTrajectory(direction))
+			projectile_instance.rotation += direction.angle()
+			projectile_instance.direction = direction
+			get_tree().root.add_child(projectile_instance)
 			
-		if playerInfo.level >= 2:
-			# Second projectile instantiation
-			var projectile_instance2 = projectile.instantiate()
-			projectile_instance2.global_position = global_position + (Vector2(11,11) * fixKnifeTrajectory(direction))
-			get_tree().root.add_child(projectile_instance2)
-			projectile_instance2.rotation += direction.angle()
-			projectile_instance2.direction = direction
-			#print("2")
-			await get_tree().create_timer(0.05).timeout
-		if playerInfo.level >= 3:
-			# Second projectile instantiation
-			var projectile_instance3 = projectile.instantiate()
-			projectile_instance3.global_position = global_position + (Vector2(-11,-11) * fixKnifeTrajectory(direction))
-			get_tree().root.add_child(projectile_instance3)
-			projectile_instance3.rotation += direction.angle()
-			projectile_instance3.direction = direction
-			#print("3")
-			await get_tree().create_timer(0.05).timeout
-		if playerInfo.level >= 4:
-			# fourth projectile instantiation
-			var projectile_instance4 = projectile.instantiate()
-			projectile_instance4.global_position = global_position + (Vector2(7,7) * fixKnifeTrajectory(direction))
-			get_tree().root.add_child(projectile_instance4)
-			projectile_instance4.rotation += direction.angle()
-			projectile_instance4.direction = direction
-		#print("4")
-		await get_tree().create_timer(cooldown).timeout
-		#decreaseCooldown()
+			await get_tree().create_timer(0.05).timeout  # Delay between projectiles
+
+		await get_tree().create_timer(cooldown).timeout  # Final cooldown
 		canShoot = true
+
 
 func fixKnifeTrajectory(givenDirection: Vector2) -> Vector2:
 	#print(givenDirection)
