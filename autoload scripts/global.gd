@@ -1,25 +1,32 @@
 extends Node
 
 var coin: PackedScene = preload("res://scenes/items/xp.tscn")
+var rng = RandomNumberGenerator.new()
+
 
 func _ready():
 	pass
 
+func _process(delta):
+	pass
+
 func takeDamage(enemy: CharacterBody2D, damage: int):
-	enemy.health -= damage
-	#print(enemy.health)
-	# Check if the enemy is dead
-	if enemy.health <= 0:
-		enemy.get_node("Model").modulate = Color.RED
-		await get_tree().create_timer(0.05).timeout
-		enemy.get_node("Model").modulate = Color.WHITE
-		death(enemy)
-	else:
-		enemy.get_node("Model").modulate = Color.RED
-		await get_tree().create_timer(0.05).timeout
-		enemy.get_node("Model").modulate = Color.WHITE
+	if not enemy.is_dead:
+		enemy.health -= damage
+		if enemy.health <= 0:
+			enemy.get_node("Model").modulate = Color.RED
+			await get_tree().create_timer(0.05).timeout
+			enemy.get_node("Model").modulate = Color.WHITE
+			death(enemy)
+		else:
+			enemy.get_node("Model").modulate = Color.RED
+			await get_tree().create_timer(0.05).timeout
+			enemy.get_node("Model").modulate = Color.WHITE
 
 func death(enemy: CharacterBody2D):
+	if enemy.is_dead:
+		return  # Prevent the enemy from dying multiple times
+
 	enemy.is_dead = true
 	enemy.get_node("Area2D/ProjectileCollision").call_deferred("set_disabled", true)
 	enemy.get_node("PlayerCollision").call_deferred("set_disabled", true)
@@ -27,17 +34,14 @@ func death(enemy: CharacterBody2D):
 	await get_tree().create_timer(0.7).timeout
 
 	if enemy != null:
-		# Store the position before the enemy is freed
 		var enemy_position = enemy.global_position
-		#print(enemy_position)
-		# Drop the coin before freeing the enemy
-		drop_coin(enemy_position)  # Pass the position, not the enemy itself
+		drop_coin(enemy_position)  # Drop the coin once
 		enemy.queue_free()
-	else:
-		print("null")
 
 func drop_coin(position: Vector2):
-	var coin_instance = coin.instantiate()
-	coin_instance.global_position = position  # Use the stored position
-	coin_instance.global_position.y += 15
-	get_tree().root.add_child(coin_instance)
+	
+	if rng.randi_range(0, 10) > 4:
+		var coin_instance = coin.instantiate()
+		coin_instance.global_position = position
+		coin_instance.global_position.y += 15
+		get_tree().root.add_child(coin_instance)

@@ -123,6 +123,7 @@ radius = 6.0
 height = 28.0
 
 [node name="SkeletonEnemy" type="CharacterBody2D" groups=["Enemy"]]
+z_index = 1
 script = ExtResource("1_jady7")
 
 [node name="Model" type="AnimatedSprite2D" parent="."]

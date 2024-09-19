@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbq048wdvt4jv"]
+
+[ext_resource type="Script" path="res://scripts/abilites/black_hole_node.gd" id="1_ohamw"]
+[ext_resource type="Texture2D" uid="uid://dg72chs8g53hm" path="res://assets/Fire Assets/Free  Effect Bullet Impact Explosion 32x32 V1/Purple Effect Bullet Impact Explosion 32x32.png" id="2_qcs0o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfkda"]
+atlas = ExtResource("2_qcs0o")
+region = Rect2(512, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l6qw"]
+atlas = ExtResource("2_qcs0o")
+region = Rect2(544, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo8br"]
+atlas = ExtResource("2_qcs0o")
+region = Rect2(576, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joxqn"]
+atlas = ExtResource("2_qcs0o")
+region = Rect2(608, 256, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b8ied"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfkda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l6qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo8br")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joxqn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gy7wi"]
+radius = 33.0151
+
+[node name="BlackHoleNode" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_ohamw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_b8ied")
+frame_progress = 0.999981
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_gy7wi")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

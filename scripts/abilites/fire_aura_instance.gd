@@ -3,13 +3,15 @@ extends Node2D
 var aura :  PackedScene = preload("res://scenes/abilites/fire_aura_node.tscn")
 var playerInfo : CharacterBody2D
 var canSpawn : bool = true
-
+var spawn : bool = true
 func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	spawnAura()
+	#spawn = false
+	if spawn == true:
+		spawnAura()
 
 
 #playerInfo.global_position

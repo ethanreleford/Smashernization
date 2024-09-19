@@ -4,12 +4,15 @@ var projectile: PackedScene = preload("res://scenes/abilites/knife_throw_node.ts
 var canShoot = true
 var direction: Vector2
 var itemLevel: int = 1
-var cooldown: float = 2
+var cooldown: float = 0.2
 var playerInfo : CharacterBody2D
+var spawn : bool = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	fireProjectile()
+	#spawn = false
+	if spawn == true:
+		fireProjectile()
 
 func fireProjectile():
 	if canShoot:
@@ -24,7 +27,7 @@ func fireProjectile():
 			projectile_instance1.direction = direction
 			#print("1")
 			# Delay before firing the next projectile
-			await get_tree().create_timer(0.2).timeout
+			await get_tree().create_timer(0.05).timeout
 			
 		if playerInfo.level >= 2:
 			# Second projectile instantiation
@@ -34,7 +37,7 @@ func fireProjectile():
 			projectile_instance2.rotation += direction.angle()
 			projectile_instance2.direction = direction
 			#print("2")
-			await get_tree().create_timer(0.2).timeout
+			await get_tree().create_timer(0.05).timeout
 		if playerInfo.level >= 3:
 			# Second projectile instantiation
 			var projectile_instance3 = projectile.instantiate()
@@ -43,7 +46,7 @@ func fireProjectile():
 			projectile_instance3.rotation += direction.angle()
 			projectile_instance3.direction = direction
 			#print("3")
-			await get_tree().create_timer(0.2).timeout
+			await get_tree().create_timer(0.05).timeout
 		if playerInfo.level >= 4:
 			# fourth projectile instantiation
 			var projectile_instance4 = projectile.instantiate()

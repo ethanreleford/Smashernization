@@ -3,7 +3,7 @@ extends RigidBody2D
 var angle : float = 0.0
 var radius : float = 50.0  # Adjust this to set the radius of the circular path
 var speed : float = 10.0 # Speed of rotation in radians per second
-var damage : int = 20
+var damage : int = 50
 @onready var global_vars = get_node("/root/Global")
 
 func _ready():

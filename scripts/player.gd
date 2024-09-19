@@ -12,7 +12,6 @@ var pos: Vector2 = Vector2.RIGHT
 
 signal face(pos: Vector2, player: CharacterBody2D)
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -57,6 +56,6 @@ func addXP(xpValue : float):
 
 func isNextLevel():
 	if xpCurrent >= xpThreshold:
-		xpThreshold = xpThreshold * (level *1.05)
+		xpThreshold = xpThreshold * (level * 1.05)
 		xpCurrent = xpStart
 		level += 1
