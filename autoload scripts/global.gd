@@ -3,7 +3,6 @@ extends Node
 var coin: PackedScene = preload("res://scenes/items/xp.tscn")
 var rng = RandomNumberGenerator.new()
 
-
 func _ready():
 	pass
 

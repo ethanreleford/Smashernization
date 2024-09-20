@@ -1,0 +1,299 @@
+[gd_scene load_steps=8 format=3 uid="uid://ca16jbdv2kno7"]
+
+[ext_resource type="Script" path="res://upgrade_window.gd" id="1_gfc33"]
+[ext_resource type="Texture2D" uid="uid://bmqn38l2x23o3" path="res://UI/newer textures/Tiles/Large tiles/Thick outline/tile_0000.png" id="2_67g6n"]
+[ext_resource type="Texture2D" uid="uid://crdcr5ktn4kcq" path="res://UI/newer textures/Tiles/Small tiles/Thick outline/tile_0010.png" id="3_lvfld"]
+[ext_resource type="Texture2D" uid="uid://dg72chs8g53hm" path="res://assets/Fire Assets/Free  Effect Bullet Impact Explosion 32x32 V1/Purple Effect Bullet Impact Explosion 32x32.png" id="4_ruaco"]
+
+[sub_resource type="SystemFont" id="SystemFont_lynqe"]
+font_names = PackedStringArray("Verdana")
+oversampling = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_sfdqm"]
+font = SubResource("SystemFont_lynqe")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p5it"]
+atlas = ExtResource("4_ruaco")
+region = Rect2(511.165, 255.608, 33.5149, 32.862)
+
+[node name="Node" type="CanvasLayer"]
+script = ExtResource("1_gfc33")
+
+[node name="UpgradeWindow" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UpgradeWindow"]
+texture_filter = 1
+custom_minimum_size = Vector2(700, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_67g6n")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="GridContainer" type="GridContainer" parent="UpgradeWindow"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="option1" type="Button" parent="UpgradeWindow/GridContainer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+
+[node name="buttonbackground" type="NinePatchRect" parent="UpgradeWindow/GridContainer/option1"]
+texture_filter = 1
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 1
+offset_right = 600.0
+texture = ExtResource("3_lvfld")
+patch_margin_left = 6
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="title" type="Label" parent="UpgradeWindow/GridContainer/option1"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -288.0
+offset_top = 10.0
+offset_right = 288.0
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "BLACK HOLE"
+label_settings = SubResource("LabelSettings_sfdqm")
+horizontal_alignment = 1
+
+[node name="description" type="Label" parent="UpgradeWindow/GridContainer/option1"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -12.0
+offset_right = 289.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A force not to be reckon with, this ability will suck enemies to the center and eliminate them with it gravitational force"
+label_settings = SubResource("LabelSettings_sfdqm")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="abilityimage" type="TextureRect" parent="UpgradeWindow/GridContainer/option1"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 98.0
+offset_bottom = 92.0
+texture = SubResource("AtlasTexture_1p5it")
+
+[node name="option2" type="Button" parent="UpgradeWindow/GridContainer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+
+[node name="buttonbackground" type="NinePatchRect" parent="UpgradeWindow/GridContainer/option2"]
+texture_filter = 1
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 1
+offset_right = 600.0
+texture = ExtResource("3_lvfld")
+patch_margin_left = 6
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="title" type="Label" parent="UpgradeWindow/GridContainer/option2"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -288.0
+offset_top = 10.0
+offset_right = 288.0
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "BLACK HOLE"
+label_settings = SubResource("LabelSettings_sfdqm")
+horizontal_alignment = 1
+
+[node name="description" type="Label" parent="UpgradeWindow/GridContainer/option2"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -12.0
+offset_right = 289.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A force not to be reckon with, this ability will suck enemies to the center and eliminate them with it gravitational force"
+label_settings = SubResource("LabelSettings_sfdqm")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="abilityimage" type="TextureRect" parent="UpgradeWindow/GridContainer/option2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 98.0
+offset_bottom = 92.0
+texture = SubResource("AtlasTexture_1p5it")
+
+[node name="option3" type="Button" parent="UpgradeWindow/GridContainer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+
+[node name="buttonbackground" type="NinePatchRect" parent="UpgradeWindow/GridContainer/option3"]
+texture_filter = 1
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 1
+offset_right = 600.0
+texture = ExtResource("3_lvfld")
+patch_margin_left = 6
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="title" type="Label" parent="UpgradeWindow/GridContainer/option3"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -288.0
+offset_top = 10.0
+offset_right = 288.0
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "BLACK HOLE"
+label_settings = SubResource("LabelSettings_sfdqm")
+horizontal_alignment = 1
+
+[node name="description" type="Label" parent="UpgradeWindow/GridContainer/option3"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -12.0
+offset_right = 289.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A force not to be reckon with, this ability will suck enemies to the center and eliminate them with it gravitational force"
+label_settings = SubResource("LabelSettings_sfdqm")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="abilityimage" type="TextureRect" parent="UpgradeWindow/GridContainer/option3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 98.0
+offset_bottom = 92.0
+texture = SubResource("AtlasTexture_1p5it")
+
+[node name="option4" type="Button" parent="UpgradeWindow/GridContainer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+
+[node name="buttonbackground" type="NinePatchRect" parent="UpgradeWindow/GridContainer/option4"]
+texture_filter = 1
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 1
+offset_right = 600.0
+texture = ExtResource("3_lvfld")
+patch_margin_left = 6
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="title" type="Label" parent="UpgradeWindow/GridContainer/option4"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -288.0
+offset_top = 10.0
+offset_right = 288.0
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "BLACK HOLE"
+label_settings = SubResource("LabelSettings_sfdqm")
+horizontal_alignment = 1
+
+[node name="description" type="Label" parent="UpgradeWindow/GridContainer/option4"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -12.0
+offset_right = 289.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A force not to be reckon with, this ability will suck enemies to the center and eliminate them with it gravitational force"
+label_settings = SubResource("LabelSettings_sfdqm")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="abilityimage" type="TextureRect" parent="UpgradeWindow/GridContainer/option4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 98.0
+offset_bottom = 92.0
+texture = SubResource("AtlasTexture_1p5it")
