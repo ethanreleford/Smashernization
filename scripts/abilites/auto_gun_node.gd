@@ -1,31 +1,27 @@
-extends RigidBody2D
+extends Node2D
 
 var speed: float = 200.0
 var direction: Vector2 = Vector2.ZERO
 var damage: int = 25
 var penetration: int = 3
 
-
 @onready var global_vars = get_node("/root/Global")
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimatedSprite2D.play("default")
+	pass # Replace with function body.
 
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position += direction * speed * delta
 
 
-
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Enemy"):
-		#print("knife")
-		#print(area)
 		await global_vars.takeDamage(area.get_parent(), damage)
-		#area.get_parent().takeDamage(damage)
 		penetrated()
 	await get_tree().create_timer(10).timeout
-		#print(area)
 	queue_free()
 
 

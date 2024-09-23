@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://cem44fh7h10ea"]
+
+[ext_resource type="Script" path="res://scripts/abilites/auto_gun_instance.gd" id="1_gvj3l"]
+[ext_resource type="Texture2D" uid="uid://p18g88eo2yvq" path="res://assets/my assets/turret orb-Sheet.png" id="2_2umf0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fur0t"]
+atlas = ExtResource("2_2umf0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7p8a"]
+atlas = ExtResource("2_2umf0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0w78"]
+atlas = ExtResource("2_2umf0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpuf2"]
+atlas = ExtResource("2_2umf0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhrtj"]
+atlas = ExtResource("2_2umf0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75qpa"]
+atlas = ExtResource("2_2umf0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdc8c"]
+atlas = ExtResource("2_2umf0")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ojg0"]
+atlas = ExtResource("2_2umf0")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eapng"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fur0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7p8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0w78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpuf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhrtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75qpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdc8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ojg0")
+}],
+"loop": true,
+"name": &"all",
+"speed": 15.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"darkblue",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"orange",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"pink",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"purple",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
+}]
+
+[node name="AutoGunInstance" type="Node2D"]
+script = ExtResource("1_gvj3l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_eapng")
+animation = &"all"
+frame_progress = 0.952086
