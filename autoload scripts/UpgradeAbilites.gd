@@ -1,6 +1,11 @@
 extends Node
 
 
+@onready var tornadoInstance = get_node("/root/World/Player/TornadoInstance")
+@onready var blackHoleInstance = get_node("/root/World/Player/BlackHoleInstance")
+@onready var blueShotInstance = get_node("/root/World/Player/KnifeThrowInstance")
+@onready var fireAuraInstance = get_node("/root/World/Player/FireAuraInstance")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,7 +17,7 @@ func _process(delta):
 
 
 func increaseSize(sprite : AnimatedSprite2D, collision: CollisionShape2D, size : float):
-	print("increased size")
+	#print("increased size")
 	sprite.scale = Vector2(1 + size, 1 + size)
 	collision.scale = Vector2(1 + size, 1 + size)
 

@@ -44,3 +44,4 @@ func drop_coin(position: Vector2):
 		coin_instance.global_position = position
 		coin_instance.global_position.y += 15
 		get_tree().root.add_child(coin_instance)
+		print("coin made it")

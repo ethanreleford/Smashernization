@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpjrf3oqd4ep3"]
+[gd_scene load_steps=16 format=3 uid="uid://bpjrf3oqd4ep3"]
 
 [ext_resource type="Texture2D" uid="uid://bkqd4lxcpv0xj" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="1_cim0q"]
 [ext_resource type="Texture2D" uid="uid://bevo75v6n51gk" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Props.png" id="2_bd3if"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ey8jlvdhbjl7" path="res://scenes/player.tscn" id="6_gojx8"]
 [ext_resource type="PackedScene" uid="uid://bwnxtjaqqqkvi" path="res://UI/TimerUI.tscn" id="8_a7oka"]
 [ext_resource type="PackedScene" uid="uid://o2bk25d4bwbp" path="res://scenes/Enemies/spawn_enemies.tscn" id="8_f6c4c"]
+[ext_resource type="PackedScene" uid="uid://ca16jbdv2kno7" path="res://upgrade_window.tscn" id="9_sj14c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_phtt7"]
 texture = ExtResource("1_cim0q")
@@ -973,6 +974,9 @@ layer_0/tile_data = PackedInt32Array(-393225, 917504, 0, -327689, 917504, 1, -26
 [node name="Player" parent="." instance=ExtResource("6_gojx8")]
 
 [node name="Label" parent="." instance=ExtResource("8_a7oka")]
+
+[node name="UpgradeWindow" parent="." instance=ExtResource("9_sj14c")]
+visible = false
 
 [node name="SpawnEnemies" parent="." instance=ExtResource("8_f6c4c")]
 

@@ -7,6 +7,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_lynqe"]
 font_names = PackedStringArray("Verdana")
+subpixel_positioning = 0
 oversampling = 10.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_sfdqm"]
@@ -17,7 +18,7 @@ font_color = Color(0, 0, 0, 1)
 atlas = ExtResource("4_ruaco")
 region = Rect2(511.165, 255.608, 33.5149, 32.862)
 
-[node name="Node" type="CanvasLayer"]
+[node name="UpgradeWindow" type="CanvasLayer"]
 script = ExtResource("1_gfc33")
 
 [node name="UpgradeWindow" type="Panel" parent="."]
@@ -87,10 +88,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -288.0
-offset_top = 10.0
-offset_right = 288.0
-offset_bottom = 31.0
+offset_left = -243.0
+offset_top = 12.0
+offset_right = 333.0
+offset_bottom = 33.0
 grow_horizontal = 2
 text = "BLACK HOLE"
 label_settings = SubResource("LabelSettings_sfdqm")
@@ -145,10 +146,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -288.0
-offset_top = 10.0
-offset_right = 288.0
-offset_bottom = 31.0
+offset_left = -243.0
+offset_top = 12.0
+offset_right = 333.0
+offset_bottom = 33.0
 grow_horizontal = 2
 text = "BLACK HOLE"
 label_settings = SubResource("LabelSettings_sfdqm")
@@ -203,10 +204,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -288.0
-offset_top = 10.0
-offset_right = 288.0
-offset_bottom = 31.0
+offset_left = -243.0
+offset_top = 12.0
+offset_right = 333.0
+offset_bottom = 33.0
 grow_horizontal = 2
 text = "BLACK HOLE"
 label_settings = SubResource("LabelSettings_sfdqm")
@@ -261,10 +262,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -288.0
-offset_top = 10.0
-offset_right = 288.0
-offset_bottom = 31.0
+offset_left = -243.0
+offset_top = 12.0
+offset_right = 333.0
+offset_bottom = 33.0
 grow_horizontal = 2
 text = "BLACK HOLE"
 label_settings = SubResource("LabelSettings_sfdqm")
@@ -297,3 +298,8 @@ offset_top = 6.0
 offset_right = 98.0
 offset_bottom = 92.0
 texture = SubResource("AtlasTexture_1p5it")
+
+[connection signal="pressed" from="UpgradeWindow/GridContainer/option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="UpgradeWindow/GridContainer/option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="UpgradeWindow/GridContainer/option3" to="." method="_on_option_3_pressed"]
+[connection signal="pressed" from="UpgradeWindow/GridContainer/option4" to="." method="_on_option_4_pressed"]

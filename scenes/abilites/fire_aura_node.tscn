@@ -42,7 +42,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_oekpc"]
 radius = 8.0
 
-[node name="FireAuraNode" type="RigidBody2D"]
+[node name="FireAuraNode" type="RigidBody2D" groups=["fireaura"]]
 gravity_scale = 0.0
 script = ExtResource("1_cjekb")
 
