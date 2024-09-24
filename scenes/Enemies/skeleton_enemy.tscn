@@ -122,7 +122,7 @@ radius = 8.0
 radius = 6.0
 height = 28.0
 
-[node name="SkeletonEnemy" type="CharacterBody2D" groups=["Enemy"]]
+[node name="SkeletonEnemy" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_jady7")
 

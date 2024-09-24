@@ -16,6 +16,7 @@ func _ready():
 	add_child(timer)         # Add the timer as a child
 
 func _process(delta: float) -> void:
+	spawn = false
 	if spawn == true:
 		spawnAura(projectileCount)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ey8jlvdhbjl7"]
+[gd_scene load_steps=32 format=3 uid="uid://ey8jlvdhbjl7"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_qtp2b"]
 [ext_resource type="Script" path="res://scenes/xp_range.gd" id="2_kgwq4"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dip0p1pdgn85s" path="res://scenes/abilites/fire_aura_instance.tscn" id="7_e3v36"]
 [ext_resource type="PackedScene" uid="uid://cf636ao4e8ia8" path="res://scenes/abilites/tornado_instance.tscn" id="8_tbe0x"]
 [ext_resource type="PackedScene" uid="uid://dyv5ewoopbwvj" path="res://scenes/abilites/black_hole_instance.tscn" id="9_gdbbh"]
+[ext_resource type="PackedScene" uid="uid://cem44fh7h10ea" path="res://scenes/abilites/auto_gun_instance.tscn" id="10_5sln3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_as6e5"]
 
@@ -209,8 +210,13 @@ rotation = -0.00328823
 
 [node name="BlackHoleInstance" parent="." instance=ExtResource("9_gdbbh")]
 
+[node name="AutoGunInstance" parent="." instance=ExtResource("10_5sln3")]
+position = Vector2(23, -20)
+scale = Vector2(0.5, 0.5)
+
 [connection signal="face" from="." to="FireAuraInstance" method="_on_player_face"]
 [connection signal="face" from="." to="KnifeThrowInstance" method="_on_player_face"]
 [connection signal="face" from="." to="TornadoInstance" method="_on_player_face"]
 [connection signal="face" from="." to="BlackHoleInstance" method="_on_player_face"]
+[connection signal="face" from="." to="AutoGunInstance" method="_on_player_face"]
 [connection signal="body_entered" from="XP_Range" to="XP_Range" method="_on_body_entered"]
