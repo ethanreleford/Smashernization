@@ -51,7 +51,7 @@ func moveTowardsEnemy(closest_enemy: Area2D, delta):
 	var target_angle = direction.angle()
 		
 		# Smoothly rotate towards the target angle
-	rotation = lerp_angle(rotation, target_angle, 0.1)  # Adjust the factor for smoothness
+	rotation = lerp_angle(rotation, target_angle, 0.20)  # Adjust the factor for smoothness
 
 # Shoots the closest enemy if within a certain distance
 func shootClosestEnemy(closest_enemy: Area2D, delta):
