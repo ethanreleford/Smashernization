@@ -10,7 +10,7 @@ var angle : float = 0.0
 var radius : float = 50.0  
 var speed : float = 200.0
 var spawn : bool = true
-var itemLevel : int = 1
+var level : int = 0
 
 func _ready():
 	pass

@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+World="res://scenes/world.tscn"
 Global="*res://autoload scripts/global.gd"
 UpgradeAbilites="*res://autoload scripts/UpgradeAbilites.gd"
 LevelingSystem="*res://autoload scripts/leveling_system.gd"

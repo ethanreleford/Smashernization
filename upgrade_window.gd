@@ -4,6 +4,7 @@ extends Node
 @onready var display = get_node("UpgradeWindow/GridContainer")
 @onready var upgrade_vars = get_node("/root/UpgradeAbilites")
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -19,20 +20,34 @@ func toggleWindow():
 	setUpgradeWindow()
 
 
+func grabRandomAbility():
+	var rng = randi_range(0, dictionary.abilities.size() - 1)
+	dictionary.resetLevels()
+	
+	var currentAbility = dictionary.abilities[rng]
+	print(currentAbility)
+	var currentLevel = dictionary.ability[rng]
+	var title = currentAbility[currentLevel].title
+	var description = currentAbility[currentLevel].description
+	return [title, description]
 
 
 func setUpgradeWindow():
-	display.get_node("option1/title").text = dictionary.abilities[0].title
-	display.get_node("option1/description").text = dictionary.abilities[0].description
+	var content = grabRandomAbility()
+	display.get_node("option1/title").text = content[0]
+	display.get_node("option1/description").text = content[1]
 	
-	display.get_node("option2/title").text = dictionary.abilities[1].title
-	display.get_node("option2/description").text = dictionary.abilities[1].description
+	content = grabRandomAbility()
+	display.get_node("option2/title").text = content[0]
+	display.get_node("option2/description").text = content[1]
 	
-	display.get_node("option3/title").text = dictionary.abilities[2].title
-	display.get_node("option3/description").text = dictionary.abilities[2].description
+	content = grabRandomAbility()
+	display.get_node("option3/title").text = content[0]
+	display.get_node("option3/description").text = content[1]
 	
-	display.get_node("option4/title").text = dictionary.abilities[3].title
-	display.get_node("option4/description").text = dictionary.abilities[3].description
+	content = grabRandomAbility()
+	display.get_node("option4/title").text = content[0]
+	display.get_node("option4/description").text = content[1]
 
 
 func _on_option_1_pressed():

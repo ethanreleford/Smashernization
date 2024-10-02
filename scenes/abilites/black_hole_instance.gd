@@ -4,7 +4,7 @@ var blackHole : PackedScene = preload("res://scenes/abilites/black_hole_node.tsc
 var canSpawn = true
 var playerInfo : CharacterBody2D
 var spawn : bool = true
-
+var level : int = 0
 
 func _ready():
 	pass

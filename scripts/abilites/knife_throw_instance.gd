@@ -3,7 +3,7 @@ extends Node2D
 var projectile: PackedScene = preload("res://scenes/abilites/knife_throw_node.tscn")
 var canShoot = true
 var direction: Vector2
-var itemLevel: int = 1
+var level : int = 0
 var cooldown: float = 0.2
 var playerInfo : CharacterBody2D
 var spawn : bool = true

@@ -6,6 +6,7 @@ var move_speed = 100  # Speed at which the head moves toward the enemy
 var fire_rate = 0.1  # Time between shots
 var time_since_last_shot = 0.0
 var stop_distance = 35  # Distance to maintain from the enemy
+var level : int = 0
 
 func _ready():
 	$AnimatedSprite2D.play("all")

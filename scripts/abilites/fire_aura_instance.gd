@@ -4,9 +4,11 @@ var aura: PackedScene = preload("res://scenes/abilites/fire_aura_node.tscn")
 var playerInfo: CharacterBody2D
 var canSpawn: bool = true
 var spawn: bool = true
-var itemLevel: int = 2
+var level : int = 0
 var projectileCount: int = 1
 var timer: Timer
+
+
 
 func _ready():
 	timer = Timer.new()
